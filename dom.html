@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Notes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-z-touch.min.css"
+        integrity="sha512-jKE5T4m8QJxKToppzWRCpDiNMtT6gLX/B2qUuP8UDg6oD/WsIujH2AkUud8HaS7nvK6SCOkjBWGZ/ed7xRbcXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            overflow: auto;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 572px;
+            justify-self: center;
+        }
+
+        @media (max-width: 607px) {
+            .container {
+                width: 95vw;
+            }
+        }
+
+        pre {
+            border-radius: 12px;
+            scrollbar-width: none;
+        }
+
+        h2 {
+            color: rgb(18, 217, 0);
+            background-color: rgb(6, 0, 45);
+            padding: 12px;
+            border-radius: 12px;
+            border: 3px solid rgb(10, 26, 173);
+        }
+
+        pre {
+            background-color: rgb(44, 0, 84);
+            padding: 12px;
+            color: rgb(208, 255, 0);
+            font-size: 17px;
+        }
+
+        ul {
+            display: inline-block;
+            margin-top: 0;
+        }
+
+        ul li {
+            color: black;
+            font-weight: bold;
+            background-color: rgb(193, 193, 193);
+            margin: 5px;
+            padding: 0 10px;
+            border-radius: 4px;
+        }
+
+        details {
+            color: white;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 10px;
+            background: #000d54;
+
+        }
+
+        summary {
+            cursor: pointer;
+            list-style: none;
+            padding-left: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔥🔥 Java Script DOM Notes</h1>
+        <h2>1️⃣ HTMLCollection = HTML elements (tags)</h2>
+        <h2>2️⃣ NodeList = elements + text + comments</h2>
+        <pre><code class="language-js">document.body
+// Returns : Single Element
+</code></pre>
+
+
+        <pre><code class="language-js">document.body.childNodes
+// Returns : NodeList
+</code></pre>
+
+        <pre><code class="language-js">document.body.childNodes[0]
+// Returns : Nodelist's Element
+</code></pre>
+
+        <pre><code class="language-js">document.body.children
+// Returns : HTMLCollection
+</code></pre>
+
+        <pre><code class="language-js">document.body.children[2]
+// Returns : Single Element
+</code></pre>
+
+        <pre><code class="language-js">// Select with Class
+document.getElementsByClassName("")
+// Returns : HTMLCollection
+</code></pre>
+
+        <pre><code class="language-js">// Select with ID
+document.getElementById("")
+// Returns : Single Element
+</code></pre>
+
+        <pre><code class="language-js">// Select with Tag
+document.getElementsByTagName("")
+// Returns : HTMLCollection
+</code></pre>
+
+        <pre><code class="language-js">// querySelector()
+// Select like CSS
+document.querySelector("")
+// Returns : First Single Element
+</code></pre>
+
+        <pre><code class="language-js">document.querySelectorAll("")
+// Returns : NodeList but if selected is class then only shows all class'
+</code></pre>
+        <h2>🔥🔥 HTML Collection & NodeList loops</h2>
+        <pre>👉 HTMLCollection = forEach नहीं चलता
+👉 NodeList = सब चलता है</pre>
+
+        <h2>🔷 HTMLCollection पर कौन-कौन से loop लगते हैं?</h2>
+        <h3>✔️ 1. for loop (सबसे safe)</h3>
+        <pre><code class="language-js">let items = document.getElementsByClassName("box");
+
+for (let i = 0; i < items.length; i++) {
+    console.log(items[i]);
+}</code></pre>
+        <h3>✔️ 2. for...of loop (सबसे easy)</h3>
+        <pre><code class="language-js">for (let el of items) {
+    console.log(el);
+}</code></pre>
+        <h3>❌ 3. forEach() (नहीं चलता)</h3>
+        <pre><code class="language-js">items.forEach(el => console.log(el)); // ❌ error</code></pre>
+
+        <h2>Element Manipulation</h2>
+        <details>
+            <summary>innerHTML</summary>
+            <pre><code class="language-js">let box = document.querySelector(".box");
+box.innerHTML = "&lt;h1&gt;Hello&lt;/h1&gt;";</code></pre>
+        </details>
+
+        <details>
+            <summary>innerText</summary>
+            <pre><code class="language-js">box.innerText = "Hello World";</code></pre>
+        </details>
+
+        <details>
+            <summary>textContent</summary>
+            <h3>HTML Code</h3>
+            <pre><code class="language-js">&lt;div class="box"&gt;
+  Hello
+  &lt;span style="display:none;"&gt;Hidden&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            <h3>JS Code</h3>
+            <pre><code class="language-js">let box = document.querySelector(".box");
+console.log(box.innerText);     // 👉 "Hello"
+console.log(box.textContent);   // 👉 "Hello Hidden"</code></pre>
+        </details>
+
+        <details>
+            <summary>getAttribute()</summary>
+            <pre><code class="language-js">let link = document.querySelector("a");
+let href = link.getAttribute("href");
+console.log(href);</code></pre>
+        </details>
+
+        <details>
+            <summary>setAttribute()</summary>
+            <pre><code class="language-js">link.setAttribute("href", "https://google.com");</code></pre>
+        </details>
+
+        <details>
+            <summary>removeAttribute()</summary>
+            <pre><code class="language-js">link.removeAttribute("href");</code></pre>
+        </details>
+
+        <h2>🔥🔥 Styling via JS</h2>
+        <h2>1️⃣ style (Direct CSS JS से लगाना)</h2>
+        <pre><code class="language-js">let box = document.querySelector(".box");
+box.style.color = "red";
+box.style.backgroundColor = "black";</code></pre>
+        <h2>2️⃣ classList (Best तरीका 🔥)</h2>
+        <pre>👉 CSS classes को add/remove/toggle करता है</pre>
+        <pre><code class="language-js">&lt;div class="box"&gt;&lt;/div&gt;</code></pre>
+        <pre><code class="language-js">.active {
+  background-color: yellow;
+}</code></pre>
+        <h3>🔹 1. classList.add()</h3>
+        <pre><code class="language-js">box.classList.add("active");</code></pre>
+        <h3>🔹 2. classList.remove()</h3>
+        <pre><code class="language-js">box.classList.remove("active");</code></pre>
+        <h3>🔹 3. classList.toggle() (🔥 important)</h3>
+        <pre><code class="language-js">box.classList.toggle("active");</code></pre>
+        <pre>👉 अगर class है → remove
+👉 नहीं है → add</pre>
+        <h2>🧠 Pro Tips (बहुत काम के)</h2>
+        <h3>👉 Multiple classes add:</h3>
+        <pre><code class="language-js">box.classList.add("a", "b", "c");</code></pre>
+        <h3>👉 Check class है या नहीं:</h3>
+        <pre><code class="language-js">box.classList.contains("active");</code></pre>
+        <h3>👉 Replace class:</h3>
+        <pre><code class="language-js">box.classList.replace("old", "new");</code></pre>
+        <h2>🔷 3. Create / Add / Remove Elements (🔥 real DOM power)</h2>
+        <h3>🚀 DOM Element Create करने के Steps</h3>
+        <h3>🔷 ✅ Step 1: Element बनाओ</h3>
+        <pre><code class="language-js">let el = document.createElement("div");</code></pre>
+        <pre>👉 अभी element memory में है (screen पर नहीं दिखेगा)</pre>
+        <h3>🔷 ✅ Step 2: Content डालो</h3>
+        <pre><code class="language-js">el.innerText = "Hello Bhairav";</code></pre>
+        <pre>👉 text / HTML / attribute / class भी यहाँ add कर सकते हो</pre>
+        <pre><code class="language-js">el.classList.add("box");</code></pre>
+        <h3>🔷 ✅ Step 3: DOM में डालो (🔥 सबसे important)</h3>
+        <pre>👉 यहाँ decide करते हो कहाँ दिखाना है</pre>
+        <pre><code class="language-js">document.body.append(el); // last
+document.body.prepend(el); // start
+box.before(el); // किसी element के पहले
+box.after(el); // किसी element के बाद
+</code></pre>
+        <h2>🧠 पूरा flow एक साथ</h2>
+        <pre><code class="language-js">let el = document.createElement("div");  // Step 1
+el.innerText = "New Element";  // Step 2
+
+document.body.append(el);  // Step 3</code></pre>
+
+        <h2>🔷 4. DOM Traversing (relation समझना)</h2>
+        <h3>🧩 Sample HTML (सब examples इसी पर based)</h3>
+        <pre><code class="language-js">&lt;div class="parent"&gt;
+    &lt;h1&gt;Title&lt;/h1&gt;
+    &lt;p class="para"&gt;Paragraph&lt;/p&gt;
+    &lt;span&gt;Span&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+        <h3>🔷 1. parentElement</h3>
+        <pre><code class="language-js">let para = document.querySelector(".para");
+console.log(para.parentElement);
+// &lt;div class="parent"&gt;&lt;/div&gt;</code></pre>
+
+        <h3>🔷 2. children</h3>
+        <pre><code class="language-js">let parent = document.querySelector(".parent");
+console.log(parent.children);
+// [h1, p, span] (HTMLCollection)</code></pre>
+
+        <h3>🔷 3. firstElementChild</h3>
+        <pre><code class="language-js">console.log(parent.firstElementChild);
+// &lt;/h1&gt;
+</code></pre>
+
+        <h3>🔷 4. lastElementChild</h3>
+        <pre><code class="language-js">console.log(parent.lastElementChild);
+// &lt;span&gt;
+</code></pre>
+
+        <h3>🔷 5. nextElementSibling</h3>
+        <pre><code class="language-js">let para = document.querySelector(".para");
+console.log(para.nextElementSibling);
+// &lt;span&gt;</code></pre>
+
+        <h3>🔷 6. previousElementSibling</h3>
+        <pre><code class="language-js">console.log(para.previousElementSibling);
+// &lt;h1&gt;
+</code></pre>
+
+        <h3>🧠 Visual समझ (🔥 बहुत important)</h3>
+        <pre style="color: #ccc;">&lt;div class="parent"&gt;   ← parentElement
+  &lt;h1&gt;                ← firstElementChild
+  &lt;p&gt;                 ← target element
+  &lt;span&gt;              ← lastElementChild
+&lt;/div&gt;
+
+p.previousElementSibling → h1  
+p.nextElementSibling → span</pre>
+
+        <h2>🔷 5. Events (🔥🔥 सबसे important)</h2>
+        <h3>1️⃣ onclick (Old तरीका)</h3>
+        <pre><code class="language-js">let btn = document.querySelector("button");
+
+btn.onclick = function() {
+    console.log("Clicked");
+};</code></pre>
+        <h3>2️⃣ addEventListener() (🔥 Best तरीका)</h3>
+        <pre><code class="language-js">element.addEventListener("eventName", function);</code></pre>
+        <pre><code class="language-js">btn.addEventListener("click", function() {
+    console.log("Clicked");
+});</code></pre>
+        <h3>🔥 Multiple Event Example</h3>
+        <pre><code class="language-js">btn.addEventListener("click", function() {
+    console.log("First");
+});
+
+btn.addEventListener("click", function() {
+    console.log("Second");
+});</code></pre>
+        <pre>👉 दोनों run होंगे ✔️</pre>
+
+        <h3>🔷 Important Events</h3>
+        <h3>🔹 1. click </h3>
+        <span>👉 जब user click करे</span>
+        <pre><code class="language-js">let btn = document.querySelector("button");
+let box = document.querySelector(".box");
+
+btn.addEventListener("click", function() {
+    box.innerText = "You clicked me!";
+    box.style.backgroundColor = "yellow";
+});</code></pre>
+        <h3>🔹 2. input </h3>
+        <span>👉 जब user typing करे (real-time)</span>
+        <pre><code class="language-js">let input = document.querySelector("input");
+let text = document.querySelector(".text");
+
+input.addEventListener("input", function() {
+    text.innerText = input.value;
+});</code></pre>
+        <h3>🔹 3. change</h3>
+        <span>👉 जब value change होकर confirm हो (blur के बाद)</span>
+        <pre><code class="language-js">let select = document.querySelector("select");
+let result = document.querySelector(".result");
+
+select.addEventListener("change", function() {
+    result.innerText = "You selected: " + select.value;
+});</code></pre>
+        <h3>🔹 4. submit</h3>
+        <span>👉 form submit होने पर</span>
+        <pre><code class="language-js">let form = document.querySelector("form");
+let input = document.querySelector("input");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault(); // page reload रोकेगा
+
+    if (input.value === "") {
+        alert("Input cannot be empty!");
+    } else {
+        alert("Form submitted!");
+    }
+});</code></pre>
+        <h3>🔹 5. keydown</h3>
+        <span>👉 keyboard key press</span>
+        <pre><code class="language-js">let input = document.querySelector("input");
+
+input.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        alert("You pressed Enter!");
+    }
+});</code></pre>
+        <h2>🔷 6. Event Object (advance)</h2>
+        <h3>🔷 1. event.target (🔥 सबसे important)</h3>
+        <span>👉 जिस element पर event हुआ है, उसे देता है</span>
+        <pre><code class="language-js">let buttons = document.querySelectorAll("button");
+
+buttons.forEach(function(btn) {
+    btn.addEventListener("click", function(e) {
+        e.target.style.backgroundColor = "green";
+    });
+});</code></pre>
+        <pre>👉 जिस button पर click करोगे, वही green होगा</pre>
+        <h3>🔷 2. event.type</h3>
+        <span>👉 कौन सा event trigger हुआ है, बताता है</span>
+        <pre><code class="language-js">let box = document.querySelector(".box");
+
+function handleEvent(e) {
+    if (e.type === "click") {
+        box.style.backgroundColor = "yellow";
+    }
+
+    if (e.type === "mouseenter") {
+        box.style.backgroundColor = "pink";
+    }
+}
+
+box.addEventListener("click", handleEvent);
+box.addEventListener("mouseenter", handleEvent);</code></pre>
+        <h3>🔷 3. event.preventDefault() (🔥 बहुत important)</h3>
+        <span>👉 default browser behavior को रोकता है</span>
+        <pre><code class="language-js">let form = document.querySelector("form");
+let input = document.querySelector("input");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault(); // page reload रोका
+
+    if (input.value === "") {
+        alert("Fill the input first!");
+    }
+});</code></pre>
+        <h2>🔷 7. Event Bubbling & Capturing (🔥 concept)</h2>
+        <h3>1️⃣ Event Bubbling (🔥 default behavior)</h3>
+        <pre><code class="language-js">&lt;div class="parent"&gt;
+  &lt;button class="child">Click Me&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        <pre><code class="language-js">let parent = document.querySelector(".parent");
+let child = document.querySelector(".child");
+
+parent.addEventListener("click", function() {
+    console.log("Parent clicked");
+});
+
+child.addEventListener("click", function() {
+    console.log("Child clicked");
+});</code></pre>
+        <h3>🧠 Output (button click करने पर):</h3>
+        <pre>Child clicked
+Parent clicked</pre>
+        <h3>2️⃣ Event Capturing</h3>
+        <pre><code class="language-js">parent.addEventListener("click", function() {
+    console.log("Parent capturing");
+}, true); // 👉 true = capturing
+
+child.addEventListener("click", function() {
+    console.log("Child clicked");
+});</code></pre>
+        <pre>Parent capturing
+Child clicked</pre>
+        <h3>3️⃣ stopPropagation() (🔥 बहुत important)</h3>
+        <span>👉 event को आगे जाने से रोकता है</span>
+        <pre><code class="language-js">child.addEventListener("click", function(e) {
+    e.stopPropagation();
+    console.log("Child only");
+});</code></pre>
+        <pre>Child only</pre>
+        <span>👉 parent तक नहीं जाएगा ❌</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="dom style.js"></script>
+
+</html>

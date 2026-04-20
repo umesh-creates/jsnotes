@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Wrapping</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-z-touch.min.css"
+        integrity="sha512-jKE5T4m8QJxKToppzWRCpDiNMtT6gLX/B2qUuP8UDg6oD/WsIujH2AkUud8HaS7nvK6SCOkjBWGZ/ed7xRbcXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            overflow: auto;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 572px;
+            justify-self: center;
+        }
+
+        @media (max-width: 607px) {
+            .container {
+                width: 95vw;
+            }
+        }
+
+        pre {
+            border-radius: 12px;
+            scrollbar-width: none;
+        }
+
+        h2 {
+            color: rgb(18, 217, 0);
+            background-color: rgb(6, 0, 45);
+            padding: 12px;
+            border-radius: 12px;
+            border: 3px solid rgb(10, 26, 173);
+        }
+
+        pre {
+            background-color: rgb(44, 0, 84);
+            padding: 12px;
+            color: rgb(208, 255, 0);
+            font-size: 17px;
+        }
+
+        ul {
+            display: inline-block;
+            margin-top: 0;
+        }
+
+        ul li {
+            color: black;
+            font-weight: bold;
+            background-color: rgb(193, 193, 193);
+            margin: 5px;
+            padding: 0 10px;
+            border-radius: 4px;
+        }
+
+        details {
+            color: white;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 10px;
+            background: #000d54;
+        }
+
+        summary {
+            cursor: pointer;
+            list-style: none;
+            padding-left: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>DOM Wrapping Most Important 🔥🔥🔥</h1>
+        <pre>add single child into signle parent</pre>
+        <pre><code class="language-html">&lt;div class="boxes"&gt;
+    &lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="box"&gt;&lt;/div&gt;
+&lt;div class="box"&gt;&lt;/div&gt;</code></pre>
+<pre><code class="language-js">const box = document.querySelector('.box');
+
+// नया parent बनाओ
+const wrapper = document.createElement('div');
+wrapper.className = 'boxes';
+
+// child के पहले add करो
+box.before(wrapper);
+// child को parent में add करो
+wrapper.appendChild(box);
+// you may use wrapper.append(box)</code></pre>
+<pre>Alternative Method (replaceWith)</pre>
+<pre><code class="language-js">const box = document.querySelector(".box");
+
+// create new parent
+const parent = document.createElement("div");
+parent.className = "boxes";
+
+// replace child into parent
+box.replaceWith(parent);
+// and add that child into replaced parent
+parent.appendChild(box);</code></pre>
+<pre>add every child into single parent</pre>
+<pre><code class="language-html">&lt;div class="boxes"&gt;
+    &lt;div class="box"&gt;&lt;/div&gt;
+    &lt;div class="box"&gt;&lt;/div&gt;
+    &lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<pre><code class="language-js">const boxes = document.querySelectorAll(".box");
+const boxe1 = document.querySelector(".box");
+
+// नया parent बनाओ
+const wrapper = document.createElement("div");
+wrapper.className = "boxes";
+
+// add parent before first child
+boxe1.before(wrapper);
+
+// add all childs into parent
+for (const element of boxes) {
+    wrapper.appendChild(element);
+}</code></pre>
+<pre>Alternative Method (replaceWith)</pre>
+<pre><code class="language-js">const boxes = document.querySelectorAll(".box");
+const box1 = document.querySelector(".box");
+
+// create new parent
+const parent = document.createElement('div');
+parent.className = 'boxes';
+// replace first child with parent
+box1.replaceWith(parent);
+for (const element of boxes) {
+    parent.appendChild(element);
+}
+</code></pre>
+<pre>add every child into its every parent</pre>
+<pre><code class="language-html">&lt;div class="boxes"&gt;
+    &lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="boxes"&gt;
+    &lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="boxes"&gt;
+    &lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-js">const boxes = document.querySelectorAll(".box");
+
+for (const element of boxes) {
+    // create new parents
+    const parent = document.createElement("div");
+    parent.className = "boxes";
+    // add parents before each child
+    element.before(parent);
+    // add all childs into all their own parents
+    parent.appendChild(element);
+}
+</code></pre>
+<pre>Alternative Method (replaceWith)</pre>
+<pre><code class="language-js">const boxes = document.querySelectorAll(".box");
+
+for (const element of boxes) {
+    // create parents
+    const parents = document.createElement("div");
+    parents.className = "boxes";
+
+    // replace all parents with all child
+    element.replaceWith(parents);
+    // add all child into all parent
+    parents.appendChild(element);
+}
+</code></pre>
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+</html>

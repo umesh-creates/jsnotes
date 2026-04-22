@@ -99,12 +99,20 @@
 // Returns : Nodelist's Element
 </code></pre>
 
+<pre><code class="language-js">document.body.childNodes[0].parentNode
+// Returns : parent node
+</code></pre>
+
         <pre><code class="language-js">document.body.children
 // Returns : HTMLCollection
 </code></pre>
 
         <pre><code class="language-js">document.body.children[2]
 // Returns : Single Element
+</code></pre>
+
+<pre><code class="language-js">document.body.children[2].parentElement
+// Returns : parent element
 </code></pre>
 
         <pre><code class="language-js">// Select with Class
@@ -203,7 +211,13 @@ box.style.backgroundColor = "black";</code></pre>
   background-color: yellow;
 }</code></pre>
         <h3>🔹 1. classList.add()</h3>
-        <pre><code class="language-js">box.classList.add("active");</code></pre>
+        <pre><code class="language-js">box.classList.add("active");
+// एक और class add कर दो 
+</code></pre>
+<pre>❎ Reset Class ⚠</pre>
+<pre><code class="language-js">el.className = "red";
+// सब हटाके नई class add कर दो 
+</code></pre>
         <h3>🔹 2. classList.remove()</h3>
         <pre><code class="language-js">box.classList.remove("active");</code></pre>
         <h3>🔹 3. classList.toggle() (🔥 important)</h3>

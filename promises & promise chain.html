@@ -408,6 +408,38 @@ data loading...
 data mil gaya : 3
 */
 </code></pre>
+<pre>Return Resolve way promise chain</pre>
+<pre><code class="language-js">function getData(data){
+    return new Promise(function(resolve,reject){
+        console.log('data loading...');
+        setTimeout(function(){
+            resolve(`data mil gaya : ${data}`);
+        },2000)
+    })
+}
+
+getData(1)
+.then(function(res){
+    console.log(res);
+    return getData(2);
+})
+.then(function(res){
+    console.log(res);
+    return getData(3);
+})
+.then(function(res){
+    console.log(res);
+})
+/*
+data loading...
+data mil gaya : 1
+data loading...
+data mil gaya : 2
+data loading...
+data mil gaya : 3
+*/
+</code></pre>
+
 
 </div>
 </body>

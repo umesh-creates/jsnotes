@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-z-touch.min.css"
+        integrity="sha512-jKE5T4m8QJxKToppzWRCpDiNMtT6gLX/B2qUuP8UDg6oD/WsIujH2AkUud8HaS7nvK6SCOkjBWGZ/ed7xRbcXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        pre {
+            overflow: auto;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 572px;
+            justify-self: center;
+        }
+
+        @media (max-width: 607px) {
+            .container {
+                width: 95vw;
+            }
+        }
+
+        table {
+            width: 50%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #9c27b0;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        pre {
+            border-radius: 12px;
+            scrollbar-width: none;
+        }
+
+        h2 {
+            color: rgb(18, 217, 0);
+            background-color: rgb(6, 0, 45);
+            padding: 12px;
+            border-radius: 12px;
+            border: 3px solid rgb(10, 26, 173);
+        }
+
+        h3 {
+            color: rgb(217, 203, 0);
+            background-color: rgb(45, 0, 45);
+            padding: 5px;
+            border-radius: 12px;
+            padding-left: 12px;
+        }
+
+        pre {
+            background-color: rgb(44, 0, 84);
+            padding: 12px;
+            color: rgb(208, 255, 0);
+            font-size: 17px;
+        }
+
+        p {
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔥 JavaScript Variables (Complete Notes)</h1>
+        <h3>🔹 Variable क्या होता है?</h3>
+        <pre>👉 Variable एक container होता है जिसमें data store किया जाता है</pre>
+        <pre><code class="language-js">let name = "Nitish";</code></pre>
+        <h2>🔹 Variable Declare करने के तरीके</h2>
+        <h3>✅ 1. var (Old तरीका)</h3>
+        <pre><code class="language-js">var x = 10;</code></pre>
+        <p>🔸 Features:</p>
+        <ul>
+            <li>function scoped</li>
+            <li>re-declare ✅</li>
+            <li>update ✅</li>
+        </ul>
+        <pre>⚠️ Problem: unpredictable behavior</pre>
+        <h3>✅ 2. let (Modern)</h3>
+        <pre><code class="language-js">let age = 20;</code></pre>
+        <p>🔸 Features:</p>
+        <ul>
+            <li>block scoped ✅</li>
+            <li>re-declare ❌</li>
+            <li>update ✅</li>
+        </ul>
+        <h3>✅ 3. const (Constant)</h3>
+        <pre><code class="language-js">const pi = 3.14;</code></pre>
+        <p>🔸 Features:</p>
+        <ul>
+            <li>block scoped ✅</li>
+            <li>re-declare ❌</li>
+            <li>update ❌</li>
+        </ul>
+        <pre>⚠️ Value change नहीं कर सकते</pre>
+        <h1>🔥 Difference (VERY IMPORTANT)</h1>
+        <table>
+    <tr>
+        <th>Feature</th>
+        <th>var</th>
+        <th>let</th>
+        <th>const</th>
+    </tr>
+    <tr>
+        <td>Scope</td>
+        <td>function</td>
+        <td>block</td>
+        <td>block</td>
+    </tr>
+    <tr>
+        <td>Re-declare</td>
+        <td>✅</td>
+        <td>❌</td>
+        <td>❌</td>
+    </tr>
+    <tr>
+        <td>Update</td>
+        <td>✅</td>
+        <td>✅</td>
+        <td>❌</td>
+    </tr>
+</table>
+<h2>🔹 Scope क्या होता है?</h2>
+<h3>🔸 1. Global Scope</h3>
+<pre><code class="language-js">let a = 10;</code></pre>
+<h3>🔸 2. Block Scope</h3>
+<pre><code class="language-js">{
+  let x = 5;
+}</code></pre>
+<h3>🔸 3. Function Scope</h3>
+<pre><code class="language-js">function test() {
+  var y = 20;
+}</code></pre>
+<h1>🔹 Hoisting (IMPORTANT)</h1>
+<pre>👉 JavaScript variables को ऊपर उठा देता है</pre>
+<pre><code class="language-js">console.log(a); // undefined
+var a = 10;</code></pre>
+<pre>👉 let और const में error आता है</pre>
+<pre><code class="language-js">console.log(a); // ❌ error
+let a = 10;</code></pre>
+<h1>🔹 Naming Rules</h1>
+<pre>✅ सही:</pre>
+<pre><code class="language-js">let userName;
+let _age;
+let $price;</code></pre>
+<pre>❌ गलत:</pre>
+<pre><code class="language-js">let 123name; ❌
+let var; ❌</code></pre>
+<h1>🔹 Data Types (Short)</h1>
+<pre><code class="language-js">let name = "Nitish";   // string
+let age = 20;         // number
+let isTrue = true;    // boolean
+let x;                // undefined
+let y = null;         // null</code></pre>
+<h1>🔹 Dynamic Typing</h1>
+<pre>👉 JS में type change हो सकता है</pre>
+<pre><code class="language-js">let a = 10;
+a = "Hello";</code></pre>
+<h1>🔹 Best Practices</h1>
+<pre>✅ const use करो (default) ✅ let use करो
+(अगर value change करनी हो) ❌ var avoid करो</pre>
+
+
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-z-touch.min.css"
+        integrity="sha512-jKE5T4m8QJxKToppzWRCpDiNMtT6gLX/B2qUuP8UDg6oD/WsIujH2AkUud8HaS7nvK6SCOkjBWGZ/ed7xRbcXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        pre{
+            overflow: auto;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 572px;
+            justify-self: center;
+        }
+
+        @media (max-width: 607px) {
+            .container {
+                width: 95vw;
+            }
+        }
+
+        table {
+            width: 50%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #9c27b0;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        pre {
+            border-radius: 12px;
+            scrollbar-width: none;
+        }
+
+        h2 {
+            color: rgb(18, 217, 0);
+            background-color: rgb(6, 0, 45);
+            padding: 12px;
+            border-radius: 12px;
+            border: 3px solid rgb(10, 26, 173);
+        }
+
+        h3 {
+            color: rgb(217, 203, 0);
+            background-color: rgb(45, 0, 45);
+            padding: 5px;
+            border-radius: 12px;
+            padding-left: 12px;
+        }
+
+        pre {
+            background-color: rgb(44, 0, 84);
+            padding: 12px;
+            color: rgb(208, 255, 0);
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔥 JavaScript Strings (Complete Notes)</h1>
+        <h3>🔹 String क्या होता है?</h3>
+        <pre>👉 String = text (characters का group)</pre>
+        <pre><code class="language-js">let name = "Nitish";</code></pre>
+        <h2>🔹 String बनाने के तरीके</h2>
+        <pre><code class="language-js">let a = "Hello";   // double quotes
+let b = 'Hello';   // single quotes
+let c = `Hello`;   // backticks (template string)</code></pre>
+        <h1>🔥 Template Literals (IMPORTANT 🔥)</h1>
+        <pre>👉 backticks `` ` use होते हैं</pre>
+        <pre><code class="language-js">let name = "Nitish";
+let msg = `Hello ${name}`;
+
+console.log(msg);</code></pre>
+        <pre>✅ multi-line भी लिख सकते हैं:</pre>
+        <pre><code class="language-js">let text = `Line 1
+Line 2`;</code></pre>
+        <h2>🔹 String Properties</h2>
+        <h3>🔸 length</h3>
+        <pre><code class="language-js">let str = "Hello";
+console.log(str.length); // 5</code></pre>
+        <h1>🔹 String Methods (IMPORTANT)</h1>
+        <h3>🔸 1. toUpperCase()</h3>
+        <pre><code class="language-js">"hello".toUpperCase(); // HELLO</code></pre>
+        <h3>🔸 2. toLowerCase()</h3>
+        <pre><code class="language-js">"HELLO".toLowerCase(); // hello</code></pre>
+        <h3>🔸 3. trim()</h3>
+        <pre>👉 extra space हटाता है</pre>
+        <pre>"  hi  ".trim(); // "hi"</pre>
+        <h3>🔸 4. slice()</h3>
+        <pre>👉 string का part निकालता है</pre>
+        <pre><code class="language-js">let str = "JavaScript";
+str.slice(0, 4); // Java</code></pre>
+        <h3>🔸 5. substring()</h3>
+        <pre>👉 similar to slice</pre>
+        <pre><code class="language-js">str.substring(0, 4);</code></pre>
+        <h3>🔸 6. replace()</h3>
+        <pre><code class="language-js">"Hello".replace("H", "Y"); // Yello</code></pre>
+        <h3>🔸 7. includes()</h3>
+        <pre><code class="language-js">"Hello".includes("lo"); // true</code></pre>
+        <h3>🔸 8. indexOf()</h3>
+        <pre><code class="language-js">"Hello".indexOf("e"); // 1</code></pre>
+        <h3>🔸 9. split()</h3>
+        <pre>👉 string → array</pre>
+        <pre><code class="language-js">"one two three".split(" ");</code></pre>
+        <h2>🔹 String Concatenation</h2>
+        <pre><code class="language-js">let a = "Hello";
+let b = "World";
+
+console.log(a + " " + b);</code></pre>
+        <h2>🔹 Escape Characters</h2>
+        <pre><code class="language-js">let text = "He said \"Hello\"";</code></pre>
+        <table>
+            <tr>
+                <th>Escape</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>\"</td>
+                <td>double quote</td>
+            </tr>
+            <tr>
+                <td>\'</td>
+                <td>single quote</td>
+            </tr>
+            <tr>
+                <td>\n</td>
+                <td>new line</td>
+            </tr>
+            <tr>
+                <td>\t</td>
+                <td>tab</td>
+            </tr>
+        </table>
+        <h2>🔹 String is Immutable</h2>
+        <pre>👉 string change नहीं होती (new string बनती है)</pre>
+        <pre><code class="language-js">let str = "Hello";
+str[0] = "Y"; // ❌ change नहीं होगा</code></pre>
+        <h2>🔹 Access Characters</h2>
+        <pre><code class="language-js">let str = "Hello";
+
+console.log(str[0]); // H</code></pre>
+        <h2>🔹 Loop through String</h2>
+        <pre><code class="language-js">for (let ch of "Hello") {
+  console.log(ch);
+}</code></pre>
+
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+
+</html>

@@ -42,6 +42,14 @@
             border: 3px solid rgb(10, 26, 173);
         }
 
+        h3 {
+            color: rgb(217, 203, 0);
+            background-color: rgb(45, 0, 45);
+            padding: 5px;
+            border-radius: 12px;
+            padding-left: 12px;
+        }
+
         pre {
             background-color: rgb(44, 0, 84);
             padding: 12px;
@@ -53,24 +61,24 @@
 
 <body>
     <div class="container">
-<h1>🔥 sync in js</h1>
-<h3>synchronous</h3>
-<pre><code class="language-js">console.log("first");
+        <h1>🔥 sync in js</h1>
+        <h3>synchronous</h3>
+        <pre><code class="language-js">console.log("first");
 console.log("second");
 console.log("third");</code></pre>
-<h3>Asynchronous</h3>
-<pre>setTimeout(fun_name, 1000) 1000 = 1000ms = 1sec</pre>
-<pre><code class="language-js">console.log("first"); // first
+        <h3>Asynchronous</h3>
+        <pre>setTimeout(fun_name, 1000) 1000 = 1000ms = 1sec</pre>
+        <pre><code class="language-js">console.log("first"); // first
 console.log("second"); // second
 setTimeout(() => {
     console.log("third") // fourth
 }, 3000);
 console.log("fourth"); // third</code></pre>
-<h1>🔥 callbacks</h1>
-<h2>Direct calls vs Callbacks</h2>
-<h3>🔹 Step 1: Simple case (दोनों काम कर रहे हैं)</h3>
-<h3>✅ Direct Call</h3>
-<pre><code class="language-js">function process() {
+        <h1>🔥 callbacks</h1>
+        <h2>Direct calls vs Callbacks</h2>
+        <h3>🔹 Step 1: Simple case (दोनों काम कर रहे हैं)</h3>
+        <h3>✅ Direct Call</h3>
+        <pre><code class="language-js">function process() {
     console.log("Start");
     sayHello();
 }
@@ -80,8 +88,8 @@ function sayHello() {
 }
 
 process();</code></pre>
-<h3>✅ Callback</h3>
-<pre><code class="language-js">function process(fn) {
+        <h3>✅ Callback</h3>
+        <pre><code class="language-js">function process(fn) {
     console.log("Start");
     fn();
 }
@@ -91,8 +99,8 @@ function sayHello() {
 }
 
 process(sayHello);</code></pre>
-<pre>passing arrow function</pre>
-<pre><code class="language-js">function sayhi(fn){
+        <pre>passing arrow function</pre>
+        <pre><code class="language-js">function sayhi(fn){
     console.log('hi');
     fn();
 }
@@ -100,10 +108,10 @@ process(sayHello);</code></pre>
 sayhi(()=> {
     console.log('hello')
 });</code></pre>
-<h3>🔥 Step 2: Requirement बदली (अब अलग-अलग काम चाहिए)</h3>
-<pre>👉 अब हमें कभी Hello, कभी Bye print करना है</pre>
-<h3>❌ Direct Call (Problem शुरू)</h3>
-<pre><code class="language-js">function process() {
+        <h3>🔥 Step 2: Requirement बदली (अब अलग-अलग काम चाहिए)</h3>
+        <pre>👉 अब हमें कभी Hello, कभी Bye print करना है</pre>
+        <h3>❌ Direct Call (Problem शुरू)</h3>
+        <pre><code class="language-js">function process() {
     console.log("Start");
     sayHello(); // ❌ fix hai
 }
@@ -117,11 +125,11 @@ function sayBye() {
 }
 
 process(); // sirf Hello hi aayega</code></pre>
-<pre><code class="language-js">👉 अगर Bye चाहिए, तो code बदलना पड़ेगा ❌
+        <pre><code class="language-js">👉 अगर Bye चाहिए, तो code बदलना पड़ेगा ❌
 user depended नहीं है यह code बल्कि manually code में changes की मांग करता है
 </code></pre>
-<h3>✅ Callback (No problem)</h3>
-<pre><code class="language-js">function process(fn) {
+        <h3>✅ Callback (No problem)</h3>
+        <pre><code class="language-js">function process(fn) {
     console.log("Start");
     fn();
 }
@@ -137,10 +145,10 @@ function sayBye() {
 process(sayHello); // Hello
 process(sayBye);   // Bye</code></pre>
 
-<h1>🔥 Callback Hell or Pyramid of Doom</h1>
-<h2>setTimeout पहले समजते है</h2>
-<pre><code class="language-js">settimeout(function, timeout);</code></pre>
-<pre><code class="language-js">function fun(){
+        <h1>🔥 Callback Hell or Pyramid of Doom</h1>
+        <h2>setTimeout पहले समजते है</h2>
+        <pre><code class="language-js">settimeout(function, timeout);</code></pre>
+        <pre><code class="language-js">function fun(){
     console.log("step 1");
 }
 setTimeout(fun, 2000);
@@ -149,8 +157,8 @@ setTimeout(function fun(){
     console.log("step 1");
 }, 2000);</code></pre>
 
-<pre><code class="language-js">setTimeout(() => {}, timeout);</code></pre>
-<pre><code class="language-js">setTimeout(() => {
+        <pre><code class="language-js">setTimeout(() => {}, timeout);</code></pre>
+        <pre><code class="language-js">setTimeout(() => {
     console.log('step 1');
 }, 2000);
 
@@ -159,7 +167,7 @@ let fun = () => {
 }
 setTimeout(fun, 2000);</code></pre>
 
-<pre><code class="language-js">console.log("loading...")
+        <pre><code class="language-js">console.log("loading...")
 setTimeout(() => {
     console.log("Step 1");
 
@@ -192,12 +200,12 @@ Step 3
 loading...
 Step 4 
 */</code></pre>
-<h2>Stytax</h2>
-<pre><code class="language-js">function fun_name(parameter){
+        <h2>Stytax</h2>
+        <pre><code class="language-js">function fun_name(parameter){
     setTimeout
 }
 fun_name(argument);</code></pre>
-<pre><code class="language-js">function getData(dataId) {
+        <pre><code class="language-js">function getData(dataId) {
     console.log('loading...')
     setTimeout(() => {
         console.log("data", dataId);
@@ -209,7 +217,7 @@ getData(23);
 loading...
 data 23 
 */</code></pre>
-<pre><code class="language-js">function getData(dataId){
+        <pre><code class="language-js">function getData(dataId){
     console.log("loading...");
     setTimeout(() => {
         console.log("data : ", dataId)
@@ -227,8 +235,8 @@ data :  1
 data :  2
 data :  3 
 */</code></pre>
-<h2>Syntax</h2>
-<pre><code class="language-js">function fun_name(parameter1, fun_parameter){
+        <h2>Syntax</h2>
+        <pre><code class="language-js">function fun_name(parameter1, fun_parameter){
     setTimeout{ 
         console.log(parameter1);
         if (fun_parameter){ // callback exist होने पर ही call करो, वरना TypeError आएगा 
@@ -237,7 +245,7 @@ data :  3
     }
 }
 fun_name(parameter1, () => {fun_name(parameter2)});</code></pre>
-<pre><code class="language-js">function getData(dataId, getNextData){
+        <pre><code class="language-js">function getData(dataId, getNextData){
     console.log('loading...')
     setTimeout(() => {
         console.log('data : ',dataId);
@@ -256,8 +264,8 @@ data :  1
 loading...
 data :  2
 */</code></pre>
-<h2>with Arrow Function</h2>
-<pre><code class="language-js">const fun = (getData, nextData) => {
+        <h2>with Arrow Function</h2>
+        <pre><code class="language-js">const fun = (getData, nextData) => {
     console.log("loading...")
     setTimeout(() => {
         console.log(getData);
@@ -270,8 +278,8 @@ fun(1, () => {
     fun(2);
 })</code></pre>
 
-<h2>This is Callbacks Hell</h2>
-<pre><code class="language-js">function getData(dataId, getNextData){
+        <h2>This is Callbacks Hell</h2>
+        <pre><code class="language-js">function getData(dataId, getNextData){
     console.log('loading...')
     setTimeout(() => {
         console.log('data : ',dataId);
@@ -298,8 +306,8 @@ data :  3
 loading...
 data :  4
 */</code></pre>
-<h2>Callbacks Hell Calls</h2>
-<pre><code class="language-js">fun_name(parameter1, () => {fun_name(parameter2, () => {fun_name(parameter3, () => {fun_name(parameter4, () => {fun_name(parameter5);})})})})</code></pre>
+        <h2>Callbacks Hell Calls</h2>
+        <pre><code class="language-js">fun_name(parameter1, () => {fun_name(parameter2, () => {fun_name(parameter3, () => {fun_name(parameter4, () => {fun_name(parameter5);})})})})</code></pre>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>

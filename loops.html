@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Loops</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-z-touch.min.css"
+        integrity="sha512-jKE5T4m8QJxKToppzWRCpDiNMtT6gLX/B2qUuP8UDg6oD/WsIujH2AkUud8HaS7nvK6SCOkjBWGZ/ed7xRbcXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            overflow: auto;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 572px;
+            justify-self: center;
+        }
+
+        @media (max-width: 607px) {
+            .container {
+                width: 95vw;
+            }
+        }
+
+        pre {
+            border-radius: 12px;
+            scrollbar-width: none;
+        }
+
+        h2 {
+            color: rgb(18, 217, 0);
+            background-color: rgb(6, 0, 45);
+            padding: 12px;
+            border-radius: 12px;
+            border: 3px solid rgb(10, 26, 173);
+        }
+
+        h3 {
+            color: rgb(217, 203, 0);
+            background-color: rgb(45, 0, 45);
+            padding: 5px;
+            border-radius: 12px;
+            padding-left: 12px;
+        }
+
+        pre {
+            background-color: rgb(44, 0, 84);
+            padding: 12px;
+            color: rgb(208, 255, 0);
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔥 JavaScript Loops</h1>
+        <h2>🔹 1. for loop</h2>
+        <pre>👉 सबसे common loop</pre>
+        <pre><code class="language-js">for (let i = 0; i < 5; i++) {
+  console.log(i);
+}</code></pre>
+        <pre>✅ कब use करें? जब iteration count पता हो</pre>
+        <h2>🔹 2. while loop</h2>
+        <pre>👉 पहले condition check होती है</pre>
+        <pre><code class="language-js">let i = 0;
+
+while (i < 5) {
+  console.log(i);
+  i++;
+}</code></pre>
+        <pre>✅ कब use करें? जब condition based loop हो</pre>
+        <h2>🔹 3. do...while loop</h2>
+        <pre>👉 कम से कम 1 बार तो चलेगा ही</pre>
+        <pre><code class="language-js">let i = 0;
+
+do {
+  console.log(i);
+  i++;
+} while (i < 5);</code></pre>
+        <h2>🔹 4. for...in loop</h2>
+        <pre>👉 object के keys या array index के लिए</pre>
+        <pre><code class="language-js">const obj = { name: "Nitish", age: 20 };
+
+for (let key in obj) {
+  console.log(key, obj[key]);
+}</code></pre>
+        <pre>⚠️ Mostly objects के लिए use करो</pre>
+        <h2>🔹 5. for...of loop</h2>
+        <pre>👉 values के लिए (array, string, iterable)</pre>
+        <pre><code class="language-js">const arr = [10, 20, 30];
+
+for (let value of arr) {
+  console.log(value);
+}</code></pre>
+        <h2>🔹 6. forEach() loop (array method)</h2>
+        <pre>👉 modern way</pre>
+        <pre><code class="language-js">const arr = [1, 2, 3];
+
+arr.forEach(function(num) {
+  console.log(num);
+});</code></pre>
+        <pre>👉 arrow function:</pre>
+        <pre><code class="language-js">arr.forEach(num => console.log(num));</code></pre>
+        <h2>🔹 7. map() (loop + return new array)</h2>
+        <pre><code class="language-js">const arr = [1, 2, 3];
+
+const result = arr.map(n => n * 2);
+console.log(result);</code></pre>
+        <h2>🔹 8. filter() (condition based loop)</h2>
+        <pre><code class="language-js">const arr = [1, 2, 3, 4];
+
+const even = arr.filter(n => n % 2 === 0);
+console.log(even);</code></pre>
+        <h2>🔹 9. reduce() (advanced loop)</h2>
+        <pre><code class="language-js">const arr = [1, 2, 3];
+
+const sum = arr.reduce((acc, val) => acc + val, 0);
+console.log(sum);</code></pre>
+        <h2>⚠️ Important Keywords</h2>
+        <h3>🔸 break</h3>
+        <pre>👉 loop को तुरंत रोक देता है</pre>
+        <pre><code class="language-js">for (let i = 0; i < 5; i++) {
+  if (i === 3) break;
+  console.log(i);
+}</code></pre>
+        <h3>🔸 continue</h3>
+        <pre>👉 current iteration skip करता है</pre>
+        <pre><code class="language-js">for (let i = 0; i < 5; i++) {
+  if (i === 2) continue;
+  console.log(i);
+}</code></pre>
+        <h1>🎯 Short Summary (Exam के लिए)</h1>
+        <pre>👉 Basic loops:</pre>
+        <ul>
+            <li>for</li>
+            <li>while</li>
+            <li>do...while</li>
+        </ul>
+        <pre>👉 Modern loops:</pre>
+        <ul>
+            <li>for...in</li>
+            <li>for...of</li>
+        </ul>
+        <pre>👉 Array loops:</pre>
+        <ul>
+            <li>forEach()</li>
+            <li>map()</li>
+            <li>filter()</li>
+            <li>reduce()</li>
+        </ul>
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+
+</html>

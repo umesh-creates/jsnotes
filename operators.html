@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operators</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-z-touch.min.css"
+        integrity="sha512-jKE5T4m8QJxKToppzWRCpDiNMtT6gLX/B2qUuP8UDg6oD/WsIujH2AkUud8HaS7nvK6SCOkjBWGZ/ed7xRbcXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        pre {
+            overflow: auto;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 572px;
+            justify-self: center;
+        }
+
+        @media (max-width: 607px) {
+            .container {
+                width: 95vw;
+            }
+        }
+
+        pre {
+            border-radius: 12px;
+            scrollbar-width: none;
+        }
+
+        h2 {
+            color: rgb(18, 217, 0);
+            background-color: rgb(6, 0, 45);
+            padding: 12px;
+            border-radius: 12px;
+            border: 3px solid rgb(10, 26, 173);
+        }
+
+        h3 {
+            color: rgb(217, 203, 0);
+            background-color: rgb(45, 0, 45);
+            padding: 5px;
+            border-radius: 12px;
+            padding-left: 12px;
+        }
+
+        pre {
+            background-color: rgb(44, 0, 84);
+            padding: 12px;
+            color: rgb(208, 255, 0);
+            font-size: 17px;
+        }
+
+        table {
+            width: 50%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔥 JavaScript Operators (Complete Notes)</h1>
+        <h3>🔹 Operator क्या होता है?</h3>
+        <pre>👉 Operator एक symbol होता है जो values पर operation करता है</pre>
+        <pre><code class="language-js">let sum = 5 + 3;</code></pre>
+        <h2>🔹 1. Arithmetic Operators (गणित वाले)</h2>
+        <table>
+            <tr>
+                <th>Operator</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>+</td>
+                <td>Addition</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>Subtraction</td>
+            </tr>
+            <tr>
+                <td>*</td>
+                <td>Multiplication</td>
+            </tr>
+            <tr>
+                <td>/</td>
+                <td>Division</td>
+            </tr>
+            <tr>
+                <td>%</td>
+                <td>Modulus (remainder)</td>
+            </tr>
+            <tr>
+                <td>**</td>
+                <td>Power</td>
+            </tr>
+            <tr>
+                <td>++</td>
+                <td>Increment</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>Decrement</td>
+            </tr>
+        </table>
+        <pre><code class="language-js">let a = 10, b = 3;
+
+console.log(a + b); // 13
+console.log(a % b); // 1
+console.log(a ** 2); // 100</code></pre>
+        <h2>🔹 2. Assignment Operators</h2>
+        <table>
+            <tr>
+                <th>Operator</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>=</td>
+                <td>a = 5</td>
+            </tr>
+            <tr>
+                <td>+=</td>
+                <td>a += 2</td>
+            </tr>
+            <tr>
+                <td>-=</td>
+                <td>a -= 2</td>
+            </tr>
+            <tr>
+                <td>*=</td>
+                <td>a *= 2</td>
+            </tr>
+            <tr>
+                <td>/=</td>
+                <td>a /= 2</td>
+            </tr>
+            <tr>
+                <td>%=</td>
+                <td>a %= 2</td>
+            </tr>
+        </table>
+        <pre><code class="language-js">let x = 5;
+x += 3; // 8</code></pre>
+        <h2>🔹 3. Comparison Operators</h2>
+        <pre>👉 result हमेशा true/false होता है</pre>
+        <table>
+            <tr>
+                <th>Operator</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>==</td>
+                <td>equal (loose)</td>
+            </tr>
+            <tr>
+                <td>===</td>
+                <td>equal (strict)</td>
+            </tr>
+            <tr>
+                <td>!=</td>
+                <td>not equal</td>
+            </tr>
+            <tr>
+                <td>!==</td>
+                <td>strict not equal</td>
+            </tr>
+            <tr>
+                <td>&gt;</td>
+                <td>greater</td>
+            </tr>
+            <tr>
+                <td>&lt;</td>
+                <td>less</td>
+            </tr>
+            <tr>
+                <td>&gt;=</td>
+                <td>greater equal</td>
+            </tr>
+            <tr>
+                <td>&lt;=</td>
+                <td>less equal</td>
+            </tr>
+        </table>
+        <pre><code class="language-js">console.log(5 == "5");  // true
+console.log(5 === "5"); // false</code></pre>
+        <h2>🔥 ⚠️ IMPORTANT (Interview)</h2>
+        <pre>👉 == vs ===</pre>
+        <ul>
+            <li>== → type check नहीं करता</li>
+            <li>=== → type भी check करता</li>
+        </ul>
+        <pre>✅ Always use ===</pre>
+        <h2>🔹 4. Logical Operators</h2>
+        <table>
+            <tr>
+                <th>Operator</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>&&</td>
+                <td>AND</td>
+            </tr>
+            <tr>
+                <td>||</td>
+                <td>OR</td>
+            </tr>
+            <tr>
+                <td>!</td>
+                <td>NOT</td>
+            </tr>
+        </table>
+        <pre><code class="language-js">let age = 20;
+
+console.log(age > 18 && age < 25); // true</code></pre>
+        <h2>🔹 5. Bitwise Operators (Advanced)</h2>
+        <table>
+            <tr>
+                <th>Operator</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>&amp;</td>
+                <td>AND (bitwise)</td>
+            </tr>
+            <tr>
+                <td>||</td>
+                <td>OR (logical)</td>
+            </tr>
+            <tr>
+                <td>^</td>
+                <td>XOR (bitwise)</td>
+            </tr>
+            <tr>
+                <td>~</td>
+                <td>NOT (bitwise)</td>
+            </tr>
+            <tr>
+                <td>&lt;&lt;</td>
+                <td>Left shift</td>
+            </tr>
+            <tr>
+                <td>&gt;&gt;</td>
+                <td>Right shift</td>
+            </tr>
+        </table>
+        <pre>👉 beginners के लिए optional</pre>
+        <h2>🔹 6. Ternary Operator</h2>
+        <pre>👉 short if-else</pre>
+        <pre><code class="language-js">let age = 18;
+
+let result = age >= 18 ? "Adult" : "Minor";</code></pre>
+        <h2>🔹 7. Type Operators</h2>
+        <table>
+            <tr>
+                <th>Operator</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>typeof</td>
+                <td>type check</td>
+            </tr>
+            <tr>
+                <td>instanceof</td>
+                <td>object type check</td>
+            </tr>
+        </table>
+        <pre><code class="language-js">console.log(typeof "Hello"); // string</code></pre>
+
+        <h2>🔹 8. String Operator</h2>
+        <pre><code class="language-js">let first = "Hello";
+let second = "World";
+
+console.log(first + " " + second);</code></pre>
+        <h2>🔹 9. Nullish & Optional (Modern 🔥)</h2>
+        <h3>🔸 Nullish Coalescing ??</h3>
+        <pre><code class="language-js">let name = null;
+
+console.log(name ?? "Guest");</code></pre>
+        <pre>👉 null/undefined पर fallback देता है</pre>
+        <h3>🔸 Optional Chaining ?.</h3>
+        <pre><code class="language-js">let user = {};
+
+console.log(user?.name);</code></pre>
+        <pre>👉 error नहीं देगा</pre>
+
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+
+</html>

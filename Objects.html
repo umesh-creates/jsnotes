@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Objects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-z-touch.min.css"
+        integrity="sha512-jKE5T4m8QJxKToppzWRCpDiNMtT6gLX/B2qUuP8UDg6oD/WsIujH2AkUud8HaS7nvK6SCOkjBWGZ/ed7xRbcXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            overflow: auto;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 572px;
+            justify-self: center;
+        }
+
+        @media (max-width: 607px) {
+            .container {
+                width: 95vw;
+            }
+        }
+
+        pre {
+            border-radius: 12px;
+            scrollbar-width: none;
+        }
+
+        h2 {
+            color: rgb(18, 217, 0);
+            background-color: rgb(6, 0, 45);
+            padding: 12px;
+            border-radius: 12px;
+            border: 3px solid rgb(10, 26, 173);
+        }
+
+        h3 {
+            color: rgb(217, 203, 0);
+            background-color: rgb(45, 0, 45);
+            padding: 5px;
+            border-radius: 12px;
+            padding-left: 12px;
+        }
+
+        pre {
+            background-color: rgb(44, 0, 84);
+            padding: 12px;
+            color: rgb(208, 255, 0);
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔥 JavaScript Objects (Complete Notes)</h1>
+        <h2>🔹 Object क्या होता है?</h2>
+        <pre>👉 Object = key-value pair का collection</pre>
+        <pre><code class="language-js">let person = {
+  name: "Nitish",
+  age: 20
+};</code></pre>
+        <h1>🔹 Object Create करने के तरीके</h1>
+        <h2>✅ 1. Object Literal (most common)</h2>
+        <pre><code class="language-js">let obj = {
+  name: "Rahul",
+  age: 25
+};</code></pre>
+        <h2>✅ 2. Constructor से</h2>
+        <pre><code class="language-js">let obj = new Object();
+obj.name = "Rahul";</code></pre>
+        <h2>✅ 3. Constructor Function</h2>
+        <pre><code class="language-js">function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+let p1 = new Person("Nitish", 20);</code></pre>
+        <h1>🔹 Object Access कैसे करें</h1>
+        <h2>🔸 Dot notation</h2>
+        <pre><code class="language-js">console.log(person.name);</code></pre>
+        <h2>🔸 Bracket notation</h2>
+        <pre><code class="language-js">console.log(person["age"]);</code></pre>
+        <h1>🔹 Add / Update / Delete</h1>
+        <pre><code class="language-js">let obj = { name: "Nitish" };
+
+// add
+obj.age = 20;
+
+// update
+obj.name = "Rahul";
+
+// delete
+delete obj.age;</code></pre>
+        <h1>🔹 Object Methods (function inside object)</h1>
+        <pre><code class="language-js">let user = {
+  name: "Nitish",
+  greet: function() {
+    console.log("Hello");
+  }
+};
+
+user.greet();</code></pre>
+        <h1>
+            🔥 this keyword (IMPORTANT 🔥)</h1>
+        <pre>👉 current object को refer करता है</pre>
+        <pre><code class="language-js">let user = {
+  name: "Nitish",
+  greet() {
+    console.log(this.name);
+  }
+};</code></pre>
+        <h2>🔹 Loop in Object</h2>
+        <h2>🔸 for...in</h2>
+        <pre><code class="language-js">let obj = { a:1, b:2 };
+
+for (let key in obj) {
+  console.log(key, obj[key]);
+}</code></pre>
+        <h2>🔹 Object Methods (built-in)</h2>
+        <h2>🔸 Object.keys()</h2>
+        <pre><code class="language-js">Object.keys(obj); // ["a","b"]</code></pre>
+        <h2>🔸 Object.values()</h2>
+        <pre><code class="language-js">Object.values(obj); // [1,2]</code></pre>
+        <h2>🔸 Object.entries()</h2>
+        <pre><code class="language-js">Object.entries(obj);</code></pre>
+        <h2>🔹 Nested Object</h2>
+        <pre><code class="language-js">let user = {
+  name: "Nitish",
+  address: {
+    city: "Nagpur"
+  }
+};
+
+console.log(user.address.city);</code></pre>
+        <h2>🔹 Optional Chaining ?.</h2>
+        <pre><code class="language-js">console.log(user?.address?.city);</code></pre>
+        <h2>🔹 Destructuring (Modern 🔥)</h2>
+        <pre><code class="language-js">let user = { name: "Nitish", age: 20 };
+
+let { name, age } = user;</code></pre>
+        <h2>🔹 Spread Operator</h2>
+        <pre><code class="language-js">let obj1 = { a:1 };
+let obj2 = { ...obj1, b:2 };</code></pre>
+        <h2>🔹 Object is Mutable</h2>
+        <pre><code class="language-js">let obj = { a:1 };
+obj.a = 10;</code></pre>
+        <h2>🔹 JSON (IMPORTANT 🔥)</h2>
+        <pre>👉 Object का string format</pre>
+        <pre><code class="language-js">let user = { name: "Nitish" };
+
+let json = JSON.stringify(user);
+let obj = JSON.parse(json);</code></pre>
+
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+
+</html>

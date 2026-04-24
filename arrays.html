@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Array</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-z-touch.min.css"
+        integrity="sha512-jKE5T4m8QJxKToppzWRCpDiNMtT6gLX/B2qUuP8UDg6oD/WsIujH2AkUud8HaS7nvK6SCOkjBWGZ/ed7xRbcXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            overflow: auto;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 572px;
+            justify-self: center;
+        }
+
+        @media (max-width: 607px) {
+            .container {
+                width: 95vw;
+            }
+        }
+
+        pre {
+            border-radius: 12px;
+            scrollbar-width: none;
+        }
+
+        h2 {
+            color: rgb(18, 217, 0);
+            background-color: rgb(6, 0, 45);
+            padding: 12px;
+            border-radius: 12px;
+            border: 3px solid rgb(10, 26, 173);
+        }
+
+        h3 {
+            color: rgb(217, 203, 0);
+            background-color: rgb(45, 0, 45);
+            padding: 5px;
+            border-radius: 12px;
+            padding-left: 12px;
+        }
+
+        pre {
+            background-color: rgb(44, 0, 84);
+            padding: 12px;
+            color: rgb(208, 255, 0);
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔥 JavaScript Arrays (Complete Notes)</h1>
+        <h2>🔹 Array क्या होता है?</h2>
+        <pre>👉 Array = multiple values को एक variable में store करना</pre>
+        <pre><code class="language-js">let arr = [1, 2, 3, 4];</code></pre>
+        <h2>🔹 Array Create करने के तरीके</h2>
+        <pre><code class="language-js">let a = [1, 2, 3];
+let b = new Array(1, 2, 3);</code></pre>
+        <h2>🔹 Index (IMPORTANT)</h2>
+        <pre>👉 Array index 0 से शुरू होता है</pre>
+        <pre><code class="language-js">let arr = ["a", "b", "c"];
+
+console.log(arr[0]); // a</code></pre>
+        <h2>🔹 Array Properties</h2>
+        <h3>🔸 length</h3>
+        <pre><code class="language-js">let arr = [1, 2, 3];
+console.log(arr.length); // 3</code></pre>
+        <h1>🔥 Important Array Methods</h1>
+        <h2>🔹 1. push() (end में add)</h2>
+        <pre><code class="language-js">let arr = [1, 2];
+arr.push(3); // [1,2,3]</code></pre>
+        <h2>🔹 2. pop() (end से remove)</h2>
+        <pre><code class="language-js">arr.pop();</code></pre>
+        <h2>🔹 3. unshift() (start में add)</h2>
+        <pre><code class="language-js">arr.unshift(0);</code></pre>
+        <h2>🔹 4. shift() (start से remove)</h2>
+        <pre><code class="language-js">arr.shift();</code></pre>
+        <h2>🔹 5. slice() (copy part)</h2>
+        <pre><code class="language-js">let arr = [1, 2, 3, 4];
+arr.slice(1, 3); // [2,3]</code></pre>
+        <h2>🔹 6. splice() (add/remove/change 🔥)</h2>
+        <pre><code class="language-js">let arr = [1, 2, 3];
+
+arr.splice(1, 1); // remove
+arr.splice(1, 0, 5); // add</code></pre>
+        <h2>🔹 7. concat() (join arrays)</h2>
+        <pre><code class="language-js">let a = [1];
+let b = [2];
+
+a.concat(b); // [1,2]</code></pre>
+        <h2>🔹 8. includes()</h2>
+        <pre><code class="language-js">[1,2,3].includes(2); // true</code></pre>
+        <h2>🔹 9. indexOf()</h2>
+        <pre><code class="language-js">[1,2,3].indexOf(2); // 1</code></pre>
+        <h1>🔥 Looping Arrays (VERY IMPORTANT)</h1>
+        <h2>🔹 for loop</h2>
+        <pre><code class="language-js">let arr = [1,2,3];
+
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
+}</code></pre>
+        <h2>🔹 for...of</h2>
+        <pre><code class="language-js">for (let val of arr) {
+  console.log(val);
+}</code></pre>
+        <h2>🔹 forEach()</h2>
+        <pre><code class="language-js">arr.forEach(val => console.log(val));</code></pre>
+        <h1>🔥 Advanced Methods (IMPORTANT 🔥)</h1>
+        <h2>🔹 map()</h2>
+        <pre>👉 new array return करता है</pre>
+        <pre><code class="language-js">let arr = [1,2,3];
+
+let result = arr.map(n => n * 2);</code></pre>
+        <h2>🔹 filter()</h2>
+        <pre><code class="language-js">let even = arr.filter(n => n % 2 === 0);</code></pre>
+        <h2>🔹 reduce()</h2>
+        <pre><code class="language-js">let sum = arr.reduce((acc, val) => acc + val, 0);</code></pre>
+        <h1>🔹 Multidimensional Array</h1>
+        <pre><code class="language-js">let arr = [
+  [1,2],
+  [3,4]
+];
+
+console.log(arr[0][1]); // 2</code></pre>
+        <h1>🔹 Array Destructuring (Modern 🔥)</h1>
+        <pre><code class="language-js">let arr = [10, 20];
+
+let [a, b] = arr;</code></pre>
+        <h1>🔹 Spread Operator ...</h1>
+        <pre><code class="language-js">let arr1 = [1,2];
+let arr2 = [...arr1, 3, 4];</code></pre>
+        <h1>🔹 Array is Mutable</h1>
+        <pre>👉 Array change हो सकता है</pre>
+        <pre><code class="language-js">let arr = [1,2];
+arr[0] = 10;</code></pre>
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+
+</html>

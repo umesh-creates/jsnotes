@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-z-touch.min.css"
+    integrity="sha512-jKE5T4m8QJxKToppzWRCpDiNMtT6gLX/B2qUuP8UDg6oD/WsIujH2AkUud8HaS7nvK6SCOkjBWGZ/ed7xRbcXg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      overflow: auto;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .container {
+      width: 572px;
+      justify-self: center;
+    }
+
+    @media (max-width: 607px) {
+      .container {
+        width: 95vw;
+      }
+    }
+
+    pre {
+      border-radius: 12px;
+      scrollbar-width: none;
+    }
+
+    h2 {
+      color: rgb(18, 217, 0);
+      background-color: rgb(6, 0, 45);
+      padding: 12px;
+      border-radius: 12px;
+      border: 3px solid rgb(10, 26, 173);
+    }
+
+    h3 {
+      color: rgb(217, 203, 0);
+      background-color: rgb(45, 0, 45);
+      padding: 5px;
+      border-radius: 12px;
+      padding-left: 12px;
+    }
+
+    pre {
+      background-color: rgb(44, 0, 84);
+      padding: 12px;
+      color: rgb(208, 255, 0);
+      font-size: 17px;
+    }
+  </style>
+</head>
+<div class="container">
+  <h1>🔥🔥 JS Functions</h1>
+  <h2>🔹 1. Function Declaration (Normal Function)</h2>
+  <pre>सबसे basic तरीका</pre>
+  <pre><code class="language-js">function greet() {
+  console.log("Hello");
+}
+greet();</code></pre>
+  <h2>🔹 2. Function Expression</h2>
+  <pre>Function को variable में store करते हैं</pre>
+  <pre><code class="language-js">const greet = function() {
+  console.log("Hello");
+};
+greet();</code></pre>
+  <h2>🔹 3. Arrow Function (=>)</h2>
+  <pre>Modern JS का short syntax</pre>
+  <pre><code class="language-js">const greet = () => {
+  console.log("Hello");
+};
+greet();</code></pre>
+  <pre>👉 Short form:</pre>
+  <pre><code class="language-js">const add = (a, b) => a + b;</code></pre>
+  <h2>🔹 4. Anonymous Function</h2>
+  <pre>जिस function का कोई नाम नहीं होता</pre>
+  <pre><code class="language-js">setTimeout(function() {
+  console.log("Run");
+}, 1000);</code></pre>
+  <h2>🔹 5. Immediately Invoked Function (IIFE)</h2>
+  <pre>Function जो तुरंत run हो जाता है</pre>
+  <pre><code class="language-js">(function() {
+  console.log("Run immediately");
+})();</code></pre>
+  <h2>🔹 6. Callback Function</h2>
+  <pre>Function को argument के रूप में पास करते हैं</pre>
+  <pre><code class="language-js">function greet(name) {
+  console.log("Hello " + name);
+}
+
+function processUser(callback) {
+  callback("Nitish");
+}
+
+processUser(greet);</code></pre>
+  <h2>🔹 7. Higher-Order Function</h2>
+  <pre>जो function दूसरे function को accept या return करे</pre>
+  <pre><code class="language-js">function multiplyBy(n) {
+  return function(x) {
+    return x * n;
+  };
+}
+
+const double = multiplyBy(2);
+console.log(double(5));</code></pre>
+  <h2>🔹 8. Constructor Function</h2>
+  <pre>Object बनाने के लिए use होता है</pre>
+  <pre><code class="language-js">function Person(name) {
+  this.name = name;
+}
+
+const p1 = new Person("Nitish");
+console.log(p1.name);</code></pre>
+  <h2>🔹 9. Generator Function</h2>
+  <pre>function* से बनता है, step-by-step values देता है</pre>
+  <pre><code class="language-js">function* count() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const c = count();
+console.log(c.next().value);</code></pre>
+  <h2>🔹 10. Async Function</h2>
+  <pre>Asynchronous code handle करने के लिए</pre>
+  <pre><code class="language-js">async function fetchData() {
+  return "Data";
+}</code></pre>
+  <h2>🔹 11. Recursive Function</h2>
+  <pre>जो खुद को call करता है</pre>
+  <pre><code class="language-js">function factorial(n) {
+  if (n === 1) return 1;
+  return n * factorial(n - 1);
+}</code></pre>
+
+
+</div>
+
+<body>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+
+</html>

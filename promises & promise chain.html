@@ -381,6 +381,33 @@ loading...
 data 3
 succeed
 */</code></pre>
+<pre>Return Resolve way</pre>
+<pre><code class="language-js">function getData(data) {
+    return new Promise(function (resolve, reject) {
+        console.log('data loading...')
+        setTimeout(() => {
+            resolve('data mil gaya : ' + data);
+        }, 2000);
+    })
+}
+getData(1).then(function (res) {
+    console.log(res);
+    getData(2).then(function (res) {
+        console.log(res);
+        getData(3).then(function(res){
+            console.log(res);
+        })
+    })
+})
+/*
+data loading...
+data mil gaya : 1
+data loading...
+data mil gaya : 2
+data loading...
+data mil gaya : 3
+*/
+</code></pre>
 
 </div>
 </body>

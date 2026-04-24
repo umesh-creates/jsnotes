@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async-Await</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-z-touch.min.css"
+        integrity="sha512-jKE5T4m8QJxKToppzWRCpDiNMtT6gLX/B2qUuP8UDg6oD/WsIujH2AkUud8HaS7nvK6SCOkjBWGZ/ed7xRbcXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            overflow: auto;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 572px;
+            justify-self: center;
+        }
+
+        @media (max-width: 607px) {
+            .container {
+                width: 95vw;
+            }
+        }
+
+        pre {
+            border-radius: 12px;
+            scrollbar-width: none;
+        }
+
+        h2 {
+            color: rgb(18, 217, 0);
+            background-color: rgb(6, 0, 45);
+            padding: 12px;
+            border-radius: 12px;
+            border: 3px solid rgb(10, 26, 173);
+        }
+
+        pre {
+            background-color: rgb(44, 0, 84);
+            padding: 12px;
+            color: rgb(208, 255, 0);
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔥 Async-Await</h1>
+    <div class="container">
+<h2>Async function syntax</h2>
+<pre><code class="language-js">async function fun_name(params) {...}</code></pre>
+<pre>return promise</pre>
+<h3>Example</h3>
+<pre><code class="language-js">async function hello(){
+    console.log('hello');
+}
+hello();</code></pre>
+<pre><code class="language-js">[[Prototype]] : Promise
+[[PromiseState]] : "fulfilled"
+[[PromiseResult]] : undefined</code></pre>
+<h2>Await use</h2>
+<pre><code class="language-js">function wetherData() {
+    return new Promise(function(resolve, reject){
+        console.log('getting wether data...')
+        setTimeout(function(){
+            console.log('got wether data ✅')
+            resolve("done ✅");
+        },2000);
+    })
+}
+async function getWetherData() {
+    await wetherData();
+}
+getWetherData();
+/*
+getting wether data...
+got wether data ✅
+*/
+</code></pre>
+<pre><code class="language-js">function wetherData(data){
+    return new Promise(function(resolve, reject){
+        console.log("loading wether data...");
+        setTimeout(function(){
+            console.log('got wether data ✅');
+            resolve('done');
+        },2000)
+    })
+}
+async function getWetherData(){
+    await wetherData(1);
+    await wetherData(2);
+    await wetherData(3);
+}
+getWetherData();
+/*
+loading wether data...
+got wether data ✅
+loading wether data...
+got wether data ✅
+loading wether data...
+got wether data ✅
+*/
+</code></pre>
+<h2>skip unnecessery call</h2>
+<pre>IIFE - Immediately Invoked Function Expression</pre>
+<h3>Syntax</h3>
+<pre><code class="language-js">// way 1 normal function
+(function(){...})();
+// way 2 arrow function
+(() => {...})();
+// way 3 async function
+(async function () {...}) ();</code></pre>
+<h3>Example</h3>
+<pre><code class="language-js">(async function(){
+    await wetherData(1);
+    await wetherData(2);
+    await wetherData(3);
+})();</code></pre>
+<h2>print resolve or reject </h2>
+<pre><code class="language-js">function wetherData(data){
+    return new Promise(function(resolve, reject){
+        console.log('getting wether data...');
+        setTimeout(function(){
+            resolve("got wether data ✅");
+        },2000)
+    })
+}
+async function getWetherData(){
+    let res1 = await wetherData();
+    console.log(res1);
+    let res2 = await wetherData();
+    console.log(res2);
+    let res3 = await wetherData();
+    console.log(res3);
+}
+getWetherData();</code></pre>
+
+
+
+
+
+
+
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+</html>

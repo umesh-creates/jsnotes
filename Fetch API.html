@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-z-touch.min.css"
+        integrity="sha512-jKE5T4m8QJxKToppzWRCpDiNMtT6gLX/B2qUuP8UDg6oD/WsIujH2AkUud8HaS7nvK6SCOkjBWGZ/ed7xRbcXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            overflow: auto;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 572px;
+            justify-self: center;
+        }
+
+        @media (max-width: 607px) {
+            .container {
+                width: 95vw;
+            }
+        }
+
+        pre {
+            border-radius: 12px;
+            scrollbar-width: none;
+        }
+
+        h2 {
+            color: rgb(18, 217, 0);
+            background-color: rgb(6, 0, 45);
+            padding: 12px;
+            border-radius: 12px;
+            border: 3px solid rgb(10, 26, 173);
+        }
+
+        h3 {
+            color: rgb(217, 203, 0);
+            background-color: rgb(45, 0, 45);
+            padding: 5px;
+            border-radius: 12px;
+            padding-left: 12px;
+        }
+
+        pre {
+            background-color: rgb(44, 0, 84);
+            padding: 12px;
+            color: rgb(208, 255, 0);
+            font-size: 17px;
+        }
+
+        table {
+            width: 50%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+         details {
+            background: #111;
+            color: #fff;
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        summary {
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            list-style: none;
+            position: relative;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "➕";
+            position: absolute;
+            right: 0;
+        }
+
+        details[open] summary::after {
+            content: "➖";
+        }
+
+        details:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔥🔥 Fetch API</h1>
+        <pre><code class="language-js">fetch('readme.txt')
+.then(function(response){ // 👉 Server जवाब देता है (लेकिन अभी raw format में)
+return response.text(); // 👉 Data को readable बनाता है
+})
+.then(function(text){
+    console.log(text); //👉 अब actual data मिल गया
+})</code></pre>
+        <h3>One parameter + one line</h3>
+        <pre><code class="language-js">fetch('readme.txt')
+.then(response => response.text())
+.then(text => console.log(text));</code></pre>
+        <h2>Async Await</h2>
+        <pre><code class="language-js">async function getData() {
+  let response = await fetch('readme.txt'); // server से response
+  let text = await response.text(); // data को text में बदलना
+  console.log(text); // final output
+}
+
+getData();</code></pre>
+        <h3>json data</h3>
+<pre><code class="language-js">file name : student.json
+[
+    {
+        "name": "kumar sanu",
+        "age": "25",
+        "city": "Goa"
+    },
+    {
+        "name": "Ram Kumar",
+        "age": "56",
+        "city": "Agra"
+    }
+]</code></pre>
+        <pre><code class="language-js">fetch('https://jsonplaceholder.typicode.com/users')
+.then(Response => Response.json())
+.then(data => console.log(data))</code></pre>
+        <h3>Error handling</h3>
+        <pre><code class="language-js">fetch('https://jsonplaceholder.typicode.com/users')
+.then(Response => Response.json())
+.then(data => console.log(data1)) // <-- data1
+.catch((error) => console.log('error')); // error</code></pre>
+        <h3>show data in body</h3>
+        <pre><code class="language-js">fetch('https://jsonplaceholder.typicode.com/users')
+.then(Response => Response.json())
+.then((data) => {
+    console.log(data)
+    for (const key in data) {
+        if (!Object.hasOwn(data, key)) continue;
+        document.write(`${data[key].name} - ${data[key].email} - ${data[key].address.city} <br>`);  
+    }
+})
+.catch((error) => console.log('error')); // error</code></pre>
+        <details>
+            <summary>OUTPUT</summary>
+            Leanne Graham - Sincere@april.biz - Gwenborough <br>
+            Ervin Howell - Shanna@melissa.tv - Wisokyburgh <br>
+            Clementine Bauch - Nathan@yesenia.net - McKenziehaven <br>
+            Patricia Lebsack - Julianne.OConner@kory.org - South Elvis <br>
+            Chelsey Dietrich - Lucio_Hettinger@annie.ca - Roscoeview <br>
+            Mrs. Dennis Schulist - Karley_Dach@jasper.info - South Christy <br>
+            Kurtis Weissnat - Telly.Hoeger@billy.biz - Howemouth <br>
+            Nicholas Runolfsdottir V - Sherwood@rosamond.me - Aliyaview <br>
+            Glenna Reichert - Chaim_McDermott@dana.io - Bartholomebury <br>
+            Clementina DuBuque - Rey.Padberg@karina.biz - Lebsackbury <br>
+        </details>
+<pre><code class="language-js">fetch("student.json")
+.then((resoponse) => resoponse.json())
+.then((data) => {
+    console.log(data);
+    for (const key in data) {
+        if (!Object.hasOwn(data, key)) continue;
+
+        let name = `${data[key].name}`;
+        let age = `${data[key].age}`;
+        let city = `${data[key].city}`;
+        document.write(`name: ${name} <br> age: ${age} <br> city: ${city} <br>`);
+
+    }
+})
+.catch((error) => console.log('error'));
+</code></pre>
+<details>
+    <summary>OUTPUT</summary>
+name: kumar sanu <br>
+age: 25 <br>
+city: Goa <br>
+name: Ram Kumar <br>
+age: 56 <br>
+city: Agra <br>
+</details>
+<h1>🔥🔥 fetch() - insert, update, delete</h1>
+<h3>Syntax :</h3>
+<pre><code class="language-js">fetch(file/URL, { 
+    method: 'post', //insert - post, update - put, delete - DELETE & read - GET (default)
+    body: Data, // server पर जो data method में से कोई करना है (form data/json data/text)
+    header : {
+        'Content-Type' : 'application/json', // json data
+        // or 
+        'Content Type' : 'application/x-www-form-urlencoded' // form data 
+        // server पर जो data भेजा जा रहा है उसका type क्या है 
+    }
+})</code></pre>
+<h3>Example : </h3>
+<pre><code class="language-js">let obj = {
+    name: 'kiran',
+    age: '87',
+    city: 'delhi',
+  }
+fetch('https://jsonplaceholder.typicode.com/posts', {
+  method: 'POST',
+  body: JSON.stringify(obj), // 🔄 JavaScript object को string (JSON format) में बदल देता है
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));</code></pre>
+<details>
+    <summary>OUTPUT</summary>
+{
+    "name": "kiran",
+    "age": "87",
+    "city": "delhi",
+    "id": 101
+}
+</details>
+<h2>Insert data through HTML Table</h2>
+<pre><code class="language-js">document.getElementById('save').addEventListener('click', (event) => {
+    event.preventDefault();
+    let obj = {
+        name: document.getElementById('name').value,
+        age: document.getElementById('age').value,
+        city: document.getElementById('city').value
+    };
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify(obj),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+})</code></pre>
+<pre><code class="language-html">&lt;form id="myform"&gt;
+    name : &lt;input type="text" id="name" placeholder="name"&gt; &lt;br&gt;&lt;br&gt;
+    age : &lt;input type="text" id="age" placeholder="age"&gt;&lt;br&gt;&lt;br&gt;
+    city : &lt;input type="text" id="city" placeholder="city"&gt;&lt;br&gt;&lt;br&gt;
+    &lt;button type="submit" id="save"&gt;submit&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<details>
+    <summary>OUTPUT</summary>
+{
+    "name": "niraj",
+    "age": "67",
+    "city": "delhi",
+    "id": 101
+}
+</details>
+
+<h2>🧠 event.preventDefault() क्या है?</h2>
+<p>👉 यह एक method है जो:</p>
+<pre>❌ browser का default behaviour रोक देता है</pre>
+<h3>🤔 Default behaviour क्या होता है?</h3>
+<p>👉 Browser कुछ काम अपने आप करता है</p>
+<p>Examples:</p>
+<table>
+    <tr>
+        <th>Action</th>
+        <th>Default Behaviour</th>
+    </tr>
+
+    <tr>
+        <td>Form submit</td>
+        <td>Page reload 🔄</td>
+    </tr>
+
+    <tr>
+        <td>Link (&lt;a&gt;) click</td>
+        <td>New page open 🌐</td>
+    </tr>
+
+    <tr>
+        <td>Button submit</td>
+        <td>Form submit</td>
+    </tr>
+</table>
+
+    </div>
+<h2>Alternative - special for HTML Form </h2>
+<pre><code class="language-js">document.getElementById('save').addEventListener('click', (event) => {
+    event.preventDefault();
+
+    let name = document.getElementById('name').value;
+    let age = document.getElementById('age').value;
+    let city = document.getElementById('city').value;
+
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify({
+            name: name,
+            age: age,
+            city: city
+        }),
+        headers: {
+            'Content-type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(json => console.log(json));
+});</code></pre>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+
+</html>

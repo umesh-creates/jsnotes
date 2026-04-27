@@ -455,8 +455,16 @@ Child clicked</pre>
 });</code></pre>
         <pre>Child only</pre>
         <span>👉 parent तक नहीं जाएगा ❌</span>
+<h2>🔥🔥 Event Delegation 📝</h2>
+<pre><code class="language-js">let parent = document.querySelector(".parent");
 
-
+parent.addEventListener("click", function(e) {
+    let child = e.target.closest(".child");
+    if (child) {
+        child.style.backgroundColor = getRandomColor();
+    }
+});</code></pre>
+<p>👉 same class के child होने के बावजूद भी जिस child पर click किया उसीपर event होगा |</p>
 
 
 
